@@ -19,8 +19,6 @@ public class LoanController {
     @Autowired
     public LoanService loanService;
 
-    private String ok;
-
     @PostMapping("/add")
     public ResponseEntity<ResponseModel> postLoan(@RequestBody LoanModel loanModel) {
         try {
