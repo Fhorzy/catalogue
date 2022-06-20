@@ -15,7 +15,4 @@ public interface RoleRepo extends JpaRepository<RoleEntity, String>, JpaSpecific
     + GlobalConstant.REC_STATUS_ACTIVE + "' AND LOWER(name) = LOWER(:name)", nativeQuery = true)
     long countByName(@Param("name") String name);
 
-    // @Query(value = "SELECT r.*, u.fullname AS fullname FROM ms_role AS r " 
-    // + "JOIN ms_user AS u ON r.id = u.role_id " + "WHERE LOWER(u.role_id) = LOWER(:id)", nativeQuery = true)
-    // List<RoleEntity> findUsersByRoleName(@Param("id") String id);
 }

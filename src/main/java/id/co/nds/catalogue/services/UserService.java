@@ -36,11 +36,6 @@ public class UserService implements Serializable{
         userValidator.nullCheckCallNumber(userModel.getCallNumber());
         userValidator.validateCallNumber(userModel.getCallNumber());
 
-        // Long countNationalId = userRepo.countByNationalId(userModel.getNationalId());
-        // if(countNationalId > 0) {
-        //     throw new ClientExceptions("National id is already existsed");
-        // }
-
         long countCallNumber = userRepo.countByCallNumber(userModel.getCallNumber());
         if(countCallNumber > 0) {
             throw new ClientExceptions("Call Number is already existsed");
@@ -119,17 +114,6 @@ public class UserService implements Serializable{
 
         UserEntity user = new UserEntity();
         user = getUserById(userModel.getId());
-
-        // if(userModel.getNationalId() != null) {
-        //     userValidator.validateCheckNationalId(userModel.getNationalId());
-        //     Long countNationalId = userRepo.countByNationalId(userModel.getNationalId());
-
-        //     if(countNationalId > 0) {
-        //         throw new ClientExceptions("National id is already existed");
-        //     }
-
-        //     user.setNationalId(userModel.getNationalId());
-        // }
 
         if(userModel.getCallNumber() != null) {
             userValidator.validateCallNumber(userModel.getCallNumber());

@@ -60,17 +60,6 @@ public class RoleService implements Serializable {
         return role;
     }
 
-    // public List<RoleEntity> findUsersByRoleName(String name) throws ClientExceptions, NotFoundException {
-    //     roleValidator.nullCheckRoleName(name);
-    //     roleValidator.validateRoleName(name);
-
-    //     List<RoleEntity> role = roleRepo.findUsersByRoleName(name);
-    //     roleValidator.nullCheckObject(role);
-
-    //     return role;
-    // }
-
-
     public RoleEntity edit(RoleModel roleModel) throws ClientExceptions, NotFoundException {
         roleValidator.nullCheckRoleId(roleModel.getId());
         roleValidator.validateRoleId(roleModel.getId());

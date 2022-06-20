@@ -34,9 +34,6 @@ public class LoanService implements Serializable {
         loanValidator.nullCheckUserId(loanModel.getUserId());
         loanValidator.validateUserId(loanModel.getUserId());
         
-        // check if user exists or not
-        // userService.getUserById(loanModel.getUserId());
-        
         LoanEntity loan = new LoanEntity();
         loan.setCustomerName(loanModel.getCustomerName().trim());
         loan.setRoleId(userService.getUserRoleById(loanModel.getUserId()));

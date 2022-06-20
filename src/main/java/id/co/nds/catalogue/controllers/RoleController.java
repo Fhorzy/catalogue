@@ -89,35 +89,6 @@ public class RoleController {
         }
     }
 
-    // @GetMapping(value="/get/user")
-    // public ResponseEntity<ResponseModel> getUsersByRoleNameController(@RequestBody RoleModel roleModel) {
-    //     try {
-    //         List<RoleEntity> role = roleService.findUsersByRoleName(roleModel.getName());
-
-    //         ResponseModel response = new ResponseModel();
-    //         response.setMsg("Request successfully");
-    //         response.setData(role);
-            
-    //         return ResponseEntity.ok(response);
-    //     } catch (ClientExceptions e) {
-    //         ResponseModel response = new ResponseModel();
-    //         response.setMsg(e.getMessage());
-
-    //         return ResponseEntity.badRequest().body(response);
-    //     } catch (NotFoundException e) {
-    //         ResponseModel response = new ResponseModel();
-    //         response.setMsg(e.getMessage());
-
-    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-    //     } catch (Exception e) {
-    //         ResponseModel response = new ResponseModel();
-    //         response.setMsg("Sorry, there is a failure on our server");
-    //         e.printStackTrace();
-
-    //         return ResponseEntity.internalServerError().body(response);
-    //     }
-    // }
-
     @PutMapping(value = "/update")
     public ResponseEntity<ResponseModel> putRoleController(@RequestBody RoleModel roleModel) {
         try {

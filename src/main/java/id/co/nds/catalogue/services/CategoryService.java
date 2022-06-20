@@ -64,8 +64,6 @@ public class CategoryService implements Serializable {
         categoryValidator.notNullCheckCategoryId(categoryModel.getId());
         categoryValidator.validateCategoryId(categoryModel.getId());
 
-        // categoryValidator.validateRecStatus(categoryModel.getId(), categoryModel.getRecStatus());
-
         if(!categoryRepo.existsById(categoryModel.getId())) {
             throw new NotFoundException("Cannot find category with id: " + categoryModel.getId());
         }

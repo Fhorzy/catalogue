@@ -26,11 +26,7 @@ public class UserSpec implements Specification<UserEntity> {
         if(userModel.getId() != null && userModel.getId() != 0) {
             p.getExpressions().add(criteriaBuilder.equal(root.get("id"), userModel.getId()));
         }
-
-        // if(userModel.getRoleId() != null && userModel.getRoleId().length() > 0) {
-        //     p.getExpressions().add(criteriaBuilder.like(root.get("role_id")));
-        // }
-
+        
         if(userModel.getCallNumber() != null && userModel.getCallNumber().length() > 0) {
             p.getExpressions().add(criteriaBuilder.like(criteriaBuilder.lower(root.get("callNumber")), "%" 
             + userModel.getCallNumber().toLowerCase() + "%"));
