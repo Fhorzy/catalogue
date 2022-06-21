@@ -14,6 +14,7 @@ import id.co.nds.catalogue.exceptions.ClientExceptions;
 import id.co.nds.catalogue.exceptions.NotFoundException;
 import id.co.nds.catalogue.globals.GlobalConstant;
 import id.co.nds.catalogue.models.ProductModel;
+import id.co.nds.catalogue.repos.MaintainProductRepo;
 import id.co.nds.catalogue.repos.ProductInfoRepo;
 import id.co.nds.catalogue.repos.ProductRepo;
 import id.co.nds.catalogue.repos.specs.ProductSpec;
@@ -28,6 +29,9 @@ public class ProductService implements Serializable {
 
     @Autowired
     private ProductInfoRepo productInfoRepo;
+
+    @Autowired
+    private MaintainProductRepo maintainProductRepo;
 
     ProductValidator productValidator = new ProductValidator();
     CategoryValidator categoryValidator = new CategoryValidator();
@@ -162,5 +166,9 @@ public class ProductService implements Serializable {
 
         return productRepo.save(product);
     }
-    
+
+    public List<ProductEntity> findProductsLessThan5Quantity() {
+        List<ProductEntity> products = maintainProductRepo.findProductsLessThan5Quantity();
+        return products;
+    }
 }

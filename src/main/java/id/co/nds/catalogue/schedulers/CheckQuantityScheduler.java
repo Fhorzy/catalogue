@@ -13,14 +13,14 @@ import id.co.nds.catalogue.entities.ProductEntity;
 import id.co.nds.catalogue.services.ProductService;
 
 @Component
-public class CronScheduler {
+public class CheckQuantityScheduler {
     @Autowired
     ProductService productService;
 
     static final Logger logger = LogManager.getLogger(CronScheduler.class);
     Integer counterB = 0;
 
-    // @Scheduled(cron = "*/10 * * * * ?") //every 10 seconds
+    @Scheduled(cron = "0 0/3 * * * ?") //every 10 seconds
     public void cronSchedule() throws Exception {
         Integer counterA = 0;
         logger.debug("Start Cron at " + Calendar.getInstance().getTime());
@@ -29,18 +29,11 @@ public class CronScheduler {
         counterA++;
         counterB++;
 
-        List<ProductEntity> products = productService.findAll();
-        logger.info("Products " + counterB + ": " + products.get(0).getName());
+        List<ProductEntity> products = productService.findProductsLessThan5Quantity();
+        for(int i = 0; i < products.size(); i++) {
+            logger.info("Products no." + (i+1));
+            logger.info("Products name:" + products.get(i).getName());
+            logger.info("Products quantity:" + products.get(i).getQuantity());
+        }
     }
-
-    // @Scheduled(cron = "${param.scheduler.cron}") //every 10 seconds
-    public void cronParamSchedule() throws Exception {
-        Integer counterA = 0;
-        logger.debug("Start CronScheduler at " + Calendar.getInstance().getTime());
-        logger.info("Counter-A: " + counterA);
-        logger.info("Counter-B: " + counterB);
-        counterA++;
-        counterB++;
-    }
-
 }
