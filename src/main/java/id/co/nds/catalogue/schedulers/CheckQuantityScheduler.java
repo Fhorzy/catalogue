@@ -20,7 +20,7 @@ public class CheckQuantityScheduler {
     static final Logger logger = LogManager.getLogger(CronScheduler.class);
     Integer counterB = 0;
 
-    @Scheduled(cron = "0 0/3 * * * ?") //every 10 seconds
+    // @Scheduled(cron = "0 0/3 * * * ?") //every 10 seconds
     public void cronSchedule() throws Exception {
         Integer counterA = 0;
         logger.debug("Start Cron at " + Calendar.getInstance().getTime());

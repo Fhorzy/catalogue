@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FixedDelayScheduler {
-    static final Logger logger = LogManager.getLogger(FixedRateScheduler.class);
+    static final Logger logger = LogManager.getLogger(FixedDelayScheduler.class);
     Integer counterB = 0;
 
     // @Scheduled(fixedDelay = 10000) //every 10 seconds

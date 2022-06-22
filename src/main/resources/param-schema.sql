@@ -17,4 +17,8 @@ CREATE TABLE ms_param(
 SELECT * FROM ms_param;
 
 INSERT INTO ms_param(param_key, param_value)
-VALUES('CRON_10_Seconds', '*/10 * * * * ?');
+VALUES('CRON_10_Seconds', '0/10 * * * * ?');
+
+UPDATE ms_param
+SET param_value = '0/10 * * * * ?'
+WHERE param_key = 'CRON_10_Seconds';
